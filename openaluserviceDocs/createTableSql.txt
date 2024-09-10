@@ -1,0 +1,113 @@
+CREATE TABLE PLACE_INFO (
+	AREA_CODE VARCHAR(50)
+	,STEP_1 VARCHAR(50)
+	,STEP_2 VARCHAR(50)
+	,STEP_3 VARCHAR(50)
+	,GRID_X VARCHAR(50)
+	,GRID_Y VARCHAR(50)
+	,LONGITUDE_HOUR VARCHAR(50)
+	,LONGITUDE_MIN VARCHAR(50)
+	,LONGITUDE_SEC VARCHAR(50)
+	,LONGITUDE_MS VARCHAR(50)
+	,LATITUDE_HOUR VARCHAR(50)
+	,LATITUDE_MIN VARCHAR(50)
+	,LATITUDE_SEC VARCHAR(50)
+	,LATITUDE_MS VARCHAR(50)
+);
+
+CREATE INDEX idx_place_info ON PLACE_INFO(AREA_CODE); 
+ 
+CREATE TABLE COLLECTOIN_AREA (
+	AREA_CODE VARCHAR(50)
+	,FOREIGN KEY (`AREA_CODE`) REFERENCES `PLACE_INFO` (`AREA_CODE`)
+);
+
+alter table COLLECTOIN_AREA add primary key(AREA_CODE);
+
+INSERT INTO COLLECTOIN_AREA (
+	AREA_CODE
+) VALUES (
+	'1100000000'
+);
+
+INSERT INTO COLLECTOIN_AREA (
+	AREA_CODE
+) VALUES (
+	'4100000000'
+);
+
+INSERT INTO COLLECTOIN_AREA (
+	AREA_CODE
+) VALUES (
+	'5000000000'
+);
+
+create table getUltraSrtNcst (
+	baseDate VARCHAR(8)
+	,baseTime VARCHAR(4)
+	,category VARCHAR(4)
+	,nx		 VARCHAR(3)
+	,ny		 VARCHAR(3)
+	,obsrValue VARCHAR(10)
+);
+
+create table getUltraSrtFcst (
+	baseDate VARCHAR(8)
+	,baseTime VARCHAR(4)
+	,category VARCHAR(4)
+	,fcstDate VARCHAR(8)
+	,fcstTime VARCHAR(4)
+	,fcstValue VARCHAR(10)
+	,nx		 VARCHAR(3)
+	,ny		 VARCHAR(3)
+);
+
+create table getVilageFcst (
+	baseDate VARCHAR(8)
+	,baseTime VARCHAR(4)
+	,category VARCHAR(4)
+	,fcstDate VARCHAR(8)
+	,fcstTime VARCHAR(4)
+	,fcstValue VARCHAR(10)
+	,nx		 VARCHAR(3)
+	,ny		 VARCHAR(3)
+);
+
+SELECT count(*)
+  FROM getUltraSrtNcst;
+
+SELECT count(*)
+  FROM getUltraSrtFcst;
+ 
+SELECT count(*)
+  FROM getVilageFcst;
+
+
+alter table collection_area
+  add column STEP_1 VARCHAR(50);
+ 
+alter table collection_area
+  add column STEP_2 VARCHAR(50);
+ 
+alter table collection_area
+  add column STEP_3 VARCHAR(50); 
+
+-----------------------------------
+
+ALTER TABLE getUltraSrtNcst MODIFY COLUMN AREA_CODE VARCHAR(50) AFTER baseDate;
+ALTER TABLE getUltraSrtNcst MODIFY COLUMN STEP_1 VARCHAR(50) AFTER baseDate;
+ALTER TABLE getUltraSrtNcst MODIFY COLUMN baseDate VARCHAR(8) AFTER AREA_CODE;
+ALTER TABLE getUltraSrtNcst MODIFY COLUMN STEP_1 VARCHAR(50) AFTER AREA_CODE;
+
+ALTER TABLE getUltraSrtFcst MODIFY COLUMN AREA_CODE VARCHAR(50) AFTER baseDate;
+ALTER TABLE getUltraSrtFcst MODIFY COLUMN STEP_1 VARCHAR(50) AFTER baseDate;
+ALTER TABLE getUltraSrtFcst MODIFY COLUMN baseDate VARCHAR(8) AFTER AREA_CODE;
+ALTER TABLE getUltraSrtFcst MODIFY COLUMN STEP_1 VARCHAR(50) AFTER AREA_CODE;
+
+
+ALTER TABLE getVilageFcst MODIFY COLUMN AREA_CODE VARCHAR(50) AFTER baseDate;
+ALTER TABLE getVilageFcst MODIFY COLUMN STEP_1 VARCHAR(50) AFTER baseDate;
+ALTER TABLE getVilageFcst MODIFY COLUMN baseDate VARCHAR(8) AFTER AREA_CODE;
+ALTER TABLE getVilageFcst MODIFY COLUMN STEP_1 VARCHAR(50) AFTER AREA_CODE;
+
+----------------------------------

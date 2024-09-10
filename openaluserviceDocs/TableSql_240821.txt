@@ -1,0 +1,69 @@
+-- OPENAPI.getUltraSrtNcst definition
+
+CREATE TABLE `getUltraSrtNcst` (
+  `AREA_CODE` varchar(50) DEFAULT NULL,
+  `baseDate` varchar(8) DEFAULT NULL,
+  `baseTime` varchar(4) DEFAULT NULL,
+  `category` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `obsrValue` varchar(10) DEFAULT NULL,
+  `unit` varchar(20) DEFAULT NULL
+)
+
+-- OPENAPI.getUltraSrtFcst definition
+
+CREATE TABLE `getUltraSrtFcst` (
+  `AREA_CODE` varchar(50) DEFAULT NULL,
+  `baseDate` varchar(8) DEFAULT NULL,
+  `baseTime` varchar(4) DEFAULT NULL,
+  `category` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `fcstDate` varchar(8) DEFAULT NULL,
+  `fcstTime` varchar(4) DEFAULT NULL,
+  `fcstValue` varchar(10) DEFAULT NULL,
+  `unit` varchar(20) DEFAULT NULL
+)
+
+-- OPENAPI.getVilageFcst definition
+
+CREATE TABLE `getVilageFcst` (
+  `AREA_CODE` varchar(50) DEFAULT NULL,
+  `baseDate` varchar(8) DEFAULT NULL,
+  `baseTime` varchar(4) DEFAULT NULL,
+  `category` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `fcstDate` varchar(8) DEFAULT NULL,
+  `fcstTime` varchar(4) DEFAULT NULL,
+  `fcstValue` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `unit` varchar(20) DEFAULT NULL
+)
+
+-- OPENAPI.place_info definition
+
+CREATE TABLE `place_info` (
+  `AREA_CODE` varchar(50) DEFAULT NULL,
+  `STEP_1` varchar(50) DEFAULT NULL,
+  `STEP_2` varchar(50) DEFAULT NULL,
+  `STEP_3` varchar(50) DEFAULT NULL,
+  `GRID_X` varchar(50) DEFAULT NULL,
+  `GRID_Y` varchar(50) DEFAULT NULL,
+  `LONGITUDE_HOUR` varchar(50) DEFAULT NULL,
+  `LONGITUDE_MIN` varchar(50) DEFAULT NULL,
+  `LONGITUDE_SEC` varchar(50) DEFAULT NULL,
+  `LONGITUDE_MS` varchar(50) DEFAULT NULL,
+  `LATITUDE_HOUR` varchar(50) DEFAULT NULL,
+  `LATITUDE_MIN` varchar(50) DEFAULT NULL,
+  `LATITUDE_SEC` varchar(50) DEFAULT NULL,
+  `LATITUDE_MS` varchar(50) DEFAULT NULL,
+  KEY `idx_place_info` (`AREA_CODE`)
+)
+
+-- OPENAPI.collection_area definition
+
+CREATE TABLE `collection_area` (
+  `AREA_CODE` varchar(50) NOT NULL,
+  `STEP_1` varchar(50) DEFAULT NULL,
+  `STEP_2` varchar(50) DEFAULT NULL,
+  `STEP_3` varchar(50) DEFAULT NULL,
+  `GRID_X` varchar(50) DEFAULT NULL,
+  `GRID_Y` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`AREA_CODE`),
+  CONSTRAINT `collection_area_ibfk_1` FOREIGN KEY (`AREA_CODE`) REFERENCES `place_info` (`AREA_CODE`)
+)

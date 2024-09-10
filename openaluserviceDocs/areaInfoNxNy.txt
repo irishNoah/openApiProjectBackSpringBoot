@@ -1,0 +1,17 @@
+-- 서울특별시(1100000000)
+SELECT  *
+  FROM  PLACE_INFO
+ WHERE  GRID_X = '60'
+   AND  GRID_Y = '127';
+  
+-- 경기도(4100000000)
+SELECT  *
+  FROM  PLACE_INFO
+ WHERE  GRID_X = '60'
+   AND  GRID_Y = '120';
+
+-- 제주특별자치도(5000000000)
+SELECT  *
+  FROM  PLACE_INFO
+ WHERE  GRID_X = '52'
+   AND  GRID_Y = '38';

@@ -1,0 +1,10 @@
+*** 초단기 실황(getUltraSrtNcst)111
+>>> https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=UjeRRoTT0jV849PNvUg%2F0H%2BxNBxqMtejj1%2F9WiC93CmJrbGGBkyBDUA5qLEpP8e%2Bn%2B65xsp5rLQhhCWfBJ%2B78w%3D%3D&numOfRows=10&pageNo=1&base_date=20240813&base_time=0600&nx=55&ny=127
+
+*** 초단기 예보(getUltraSrtFcst)
+>>> https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey=UjeRRoTT0jV849PNvUg%2F0H%2BxNBxqMtejj1%2F9WiC93CmJrbGGBkyBDUA5qLEpP8e%2Bn%2B65xsp5rLQhhCWfBJ%2B78w%3D%3D&numOfRows=10&pageNo=1&base_date=20240813&base_time=0630&nx=55&ny=127
+
+*** 단기 예보(getVilageFcst)
+>>> https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=UjeRRoTT0jV849PNvUg%2F0H%2BxNBxqMtejj1%2F9WiC93CmJrbGGBkyBDUA5qLEpP8e%2Bn%2B65xsp5rLQhhCWfBJ%2B78w%3D%3D&numOfRows=10&pageNo=1&base_date=20240813&base_time=2000&nx=55&ny=127
+
+
