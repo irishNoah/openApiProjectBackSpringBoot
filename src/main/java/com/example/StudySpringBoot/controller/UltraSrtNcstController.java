@@ -20,6 +20,6 @@ public class UltraSrtNcstController {
     @GetMapping("/ultraSrtNcst")
     public String fetchWeatherData() {
     	ultraSrtNcstService.fetchAndSaveUltraSrtNcstData();
-        return "Weather data fetched and saved successfully!";
+        return "Done - Weather data fetched and saved successfully!";
     }
 }
