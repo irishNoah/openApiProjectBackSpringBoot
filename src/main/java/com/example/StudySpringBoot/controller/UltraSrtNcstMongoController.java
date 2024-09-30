@@ -28,6 +28,6 @@ public class UltraSrtNcstMongoController {
 
         CompletableFuture.allOf(futures).join(); // 모든 비동기 작업이 완료될 때까지 기다림
 
-        return "Done - Weather data fetched and saved to MongoDB successfully!!!";
+        return "Done - Weather data fetched and saved to MongoDB successfully11!!!";
     }
 }
